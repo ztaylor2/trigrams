@@ -1,12 +1,13 @@
 """Run trygrams algoritm on a text file."""
 
+import random
+
 
 def main(source_file, number_of_words_to_output):
     """Main function that opens our file of text."""
     raw_book_file = open(source_file)
     raw_book_string = raw_book_file.read()
-    generate_dictionary_from_source_text(raw_book_string)
-    print(raw_book_file.read(), 100)
+    generate_trigrams_output(raw_book_string, number_of_words_to_output)
     raw_book_file.close()
 
 
@@ -23,8 +24,19 @@ def generate_dictionary_from_source_text(raw_book_string):
             dictionary_of_matching_words[key].append(value)
         else:
             dictionary_of_matching_words.update({key: [value]})
+    return dictionary_of_matching_words
 
-    print(dictionary_of_matching_words)
+
+def generate_trigrams_output(raw_book_string, number_of_words_to_output):
+    dictionary_of_matching_words = generate_dictionary_from_source_text(raw_book_string)
+    pick_word_in_dictionary(dictionary_of_matching_words)
+
+
+def pick_word_in_dictionary(dictionary_of_matching_words):
+    random_key = random.choice(list(dictionary_of_matching_words.keys()))
+    print(random.choice(dictionary_of_matching_words[random_key]))
+
+
 
 
 """Try to keep your code well-factored by creating functions to exe
