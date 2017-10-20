@@ -28,15 +28,29 @@ def generate_dictionary_from_source_text(raw_book_string):
 
 
 def generate_trigrams_output(raw_book_string, number_of_words_to_output):
+    """."""
     dictionary_of_matching_words = generate_dictionary_from_source_text(raw_book_string)
-    pick_word_in_dictionary(dictionary_of_matching_words)
+    i = 0
+    output = []
+    next_key = random.choice(list(dictionary_of_matching_words.keys()))
+    output.extend(next_key.split())
+    while i <= len(output):
+        if next_key not in dictionary_of_matching_words:
+            break
+        random_value = random.choice(dictionary_of_matching_words[next_key])
+        output.append(random_value)
+        first_word = output[len(output) - 1]
+        second_word = output[len(output) - 2]
+        next_key = "{} {}".format(second_word, first_word)
+        i += 1
+
+    print(' '.join(output))
 
 
 def pick_word_in_dictionary(dictionary_of_matching_words):
+    """."""
     random_key = random.choice(list(dictionary_of_matching_words.keys()))
-    print(random.choice(dictionary_of_matching_words[random_key]))
-
-
+    return random.choice(dictionary_of_matching_words[random_key])
 
 
 """Try to keep your code well-factored by creating functions to exe
