@@ -1,6 +1,7 @@
 """Run trygrams algoritm on a text file."""
 
 import random
+import sys
 
 
 def main(source_file, number_of_words_to_output):
@@ -53,31 +54,10 @@ def pick_word_in_dictionary(dictionary_of_matching_words):
     return random.choice(dictionary_of_matching_words[random_key])
 
 
-"""Try to keep your code well-factored by creating functions to exe
-cute discreet steps of the processing. You might have one function t
-hat processes the input into your trigram source. Perhaps there is ano
-ther that is responsible for selecting a new word, given a pair of inp
-ut words. Maybe there are others.
-
-Create a main function which implements the core of your algo
-rithm. It should take two arguments, the path to a source fil
-e and an integer representing the number of words to generate.
-
-Try to keep your code well-factored by creating functions to exe
-cute discreet steps of the processing. You might have one functio
-n that processes the input into your trigram source. Perhaps there
-'is another that is responsible for selecting a new word, given a pair
- of input words. Maybe there are others.
-
-
-
-
-
 if __name__ == '__main__':
-
-    sys.argv
-
-    If you install any additional Python packages (like pytest)
-     to accomplish your work, make sure you use pip freeze to cre
-    ate a requirements.pip file and include it in your repository.
-"""
+    main(sys.argv[1], sys.argv[2])
+    # print(sys.argv[0])
+    # print(sys.argv[1])
+    # print(sys.argv[2])
+    # sys.argv # get things from command line
+    # stdout # print 200 words of text to this
