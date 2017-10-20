@@ -35,7 +35,7 @@ def generate_trigrams_output(raw_book_string, number_of_words_to_output):
     output = []
     next_key = random.choice(list(dictionary_of_matching_words.keys()))
     output.extend(next_key.split())
-    while i <= len(output):
+    while i <= (number_of_words_to_output - 3):
         if next_key not in dictionary_of_matching_words:
             break
         random_value = random.choice(dictionary_of_matching_words[next_key])
@@ -44,17 +44,10 @@ def generate_trigrams_output(raw_book_string, number_of_words_to_output):
         second_word = output[len(output) - 2]
         next_key = "{} {}".format(second_word, first_word)
         i += 1
-
     return ' '.join(output)
 
 
-def pick_word_in_dictionary(dictionary_of_matching_words):
-    """."""
-    random_key = random.choice(list(dictionary_of_matching_words.keys()))
-    return random.choice(dictionary_of_matching_words[random_key])
-
-
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     output = main(sys.argv[1], sys.argv[2])
     # stdout # print 200 words of text to this
     sys.stdout.write(output)
