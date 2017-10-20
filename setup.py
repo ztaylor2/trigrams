@@ -1,4 +1,4 @@
-"""Our setup.py for future use."""
+"""Our setup.py for future users to know what/who we are."""
 
 
 from setuptools import setup
