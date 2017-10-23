@@ -48,6 +48,6 @@ def generate_trigrams_output(raw_book_string, number_of_words_to_output):
 
 
 if __name__ == '__main__':  # pragma: no cover
-    output = main(sys.argv[1], sys.argv[2])
+    output = main(sys.argv[1], int(sys.argv[2]))
     # stdout # print 200 words of text to this
     sys.stdout.write(output)
