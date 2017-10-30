@@ -12,7 +12,7 @@ def main(source_file, number_of_words_to_output):
     return generate_trigrams_output(raw_book_string, number_of_words_to_output)
 
 
-def generate_dictionary_from_source_text(raw_book_string):
+def gen_dict_from_source_text(raw_book_string):
     """The function turns our string into a list."""
     dictionary_of_matching_words = {}
     book_word_list = raw_book_string.split()
@@ -29,15 +29,15 @@ def generate_dictionary_from_source_text(raw_book_string):
 
 
 def generate_trigrams_output(raw_book_string, number_of_words_to_output):
-    """."""
-    dictionary_of_matching_words = generate_dictionary_from_source_text(raw_book_string)
+    """Main function that creates the desired output."""
+    dictionary_of_matching_words = gen_dict_from_source_text(raw_book_string)
     i = 0
     output = []
     next_key = random.choice(list(dictionary_of_matching_words.keys()))
     output.extend(next_key.split())
     while i <= (number_of_words_to_output - 3):
         if next_key not in dictionary_of_matching_words:
-            break
+            random.choice(dictionary_of_matching_words[next_key])
         random_value = random.choice(dictionary_of_matching_words[next_key])
         output.append(random_value)
         first_word = output[len(output) - 1]
