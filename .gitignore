@@ -1,2 +1,4 @@
 ENV
 my_submission.txt
+__pycache__
+sherlock.txt
